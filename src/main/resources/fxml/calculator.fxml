@@ -7,17 +7,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" stylesheets="@calculator.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" stylesheets="@calculator.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.JavaFXCalculatorController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="display" alignment="CENTER_RIGHT" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0" text="0">
-               <font>
-                  <Font size="48.0" />
-               </font>
             </TextField>
          </children>
       </HBox>
@@ -37,85 +32,37 @@
           <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="C">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="c" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCClicked" text="C">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="+/-" GridPane.columnIndex="1">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="plusMinus" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnPlusMinusClicked" text="+/-" GridPane.columnIndex="1">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="\%" GridPane.columnIndex="2">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="percent" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPercentClicked" text="\%" GridPane.columnIndex="2">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="/" GridPane.columnIndex="3">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="divide" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDivideClicked" text="/" GridPane.columnIndex="3">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="7" GridPane.rowIndex="1">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="seven" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSevenClicked" text="7" GridPane.rowIndex="1">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="eight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEightClicked" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="nine" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNineClicked" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="multiply" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMultiplyClicked" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="4" GridPane.rowIndex="2">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="four" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onFourClicked" text="4" GridPane.rowIndex="2">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="five" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onFiveClicked" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="six" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSixClicked" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="subtract" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSubtractClicked" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="1" GridPane.rowIndex="3">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="one" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onOneClicked" text="1" GridPane.rowIndex="3">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="two" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTwoClicked" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="three" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onThreeClicked" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="add" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddClicked" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3">
             </Button>
          </children>
       </GridPane>
@@ -123,20 +70,11 @@
    <bottom>
       <HBox prefHeight="60.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="0">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="zero" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#onZeroClicked" prefHeight="60.0" prefWidth="150.0" text="0">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="75.0" text=".">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="dot" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDotClicked" prefWidth="75.0" text=".">
             </Button>
-            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="75.0" text="=">
-               <font>
-                  <Font size="26.0" />
-               </font>
+            <Button fx:id="equals" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEqualsClicked" prefWidth="75.0" text="=">
             </Button>
          </children>
       </HBox>
