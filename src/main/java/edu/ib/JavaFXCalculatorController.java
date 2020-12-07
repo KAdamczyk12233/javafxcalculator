@@ -250,6 +250,7 @@ public class JavaFXCalculatorController {
         double number1 = Double.parseDouble(display.getText());
         number1 /= 100;
         display.setText(Double.toString(number1));
+        number = 0;
     }
 
     @FXML
