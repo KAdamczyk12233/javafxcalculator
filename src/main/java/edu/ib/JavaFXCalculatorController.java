@@ -104,13 +104,13 @@ public class JavaFXCalculatorController {
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
-                number += number1;
+                number = Calculations.add(number, number1);
             } else if (sign.equals("-")) {
-                number -= number1;
+                number = Calculations.subtract(number, number1);
             } else if (sign.equals("*")) {
-                number *= number1;
+                number = Calculations.multiply(number, number1);
             } else if (sign.equals("/")) {
-                number /= number1;
+                number = Calculations.divide(number, number1);
             }
             sign = "+";
             display.setText("0");
@@ -135,13 +135,13 @@ public class JavaFXCalculatorController {
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
-                number += number1;
+                number = Calculations.add(number, number1);
             } else if (sign.equals("-")) {
-                number -= number1;
+                number = Calculations.subtract(number, number1);
             } else if (sign.equals("*")) {
-                number *= number1;
+                number = Calculations.multiply(number, number1);
             } else if (sign.equals("/")) {
-                number /= number1;
+                number = Calculations.divide(number, number1);
             }
             sign = "/";
             display.setText("0");
@@ -241,13 +241,13 @@ public class JavaFXCalculatorController {
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
-                number += number1;
+                number = Calculations.add(number, number1);
             } else if (sign.equals("-")) {
-                number -= number1;
+                number = Calculations.subtract(number, number1);
             } else if (sign.equals("*")) {
-                number *= number1;
+                number = Calculations.multiply(number, number1);
             } else if (sign.equals("/")) {
-                number /= number1;
+                number = Calculations.divide(number, number1);
             }
             sign = "*";
             display.setText("0");
@@ -313,13 +313,13 @@ public class JavaFXCalculatorController {
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
-                number += number1;
+                number = Calculations.add(number, number1);
             } else if (sign.equals("-")) {
-                number -= number1;
+                number = Calculations.subtract(number, number1);
             } else if (sign.equals("*")) {
-                number *= number1;
+                number = Calculations.multiply(number, number1);
             } else if (sign.equals("/")) {
-                number /= number1;
+                number = Calculations.divide(number, number1);
             }
             sign = "-";
             display.setText("0");
