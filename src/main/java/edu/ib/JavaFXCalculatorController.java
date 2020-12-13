@@ -11,6 +11,9 @@ import javafx.scene.control.TextField;
 public class JavaFXCalculatorController {
     private static double number = 0;
     private static String sign = "";
+    private static double numberAfterEqual = 0;
+    private static boolean equalClicked = false;
+    private static String signAfterEqual = "";
     @FXML
     private ResourceBundle resources;
 
@@ -79,6 +82,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void OnPlusMinusClicked(ActionEvent event) {
+        equalClicked = false;
         String[] a = display.getText().split("");
         if (Double.parseDouble(display.getText()) != 0) {
             if (a[0].equals("-")) {
@@ -96,6 +100,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onAddClicked(ActionEvent event) {
+        equalClicked = false;
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
@@ -118,6 +123,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onCClicked(ActionEvent event) {
+        equalClicked = false;
         number = 0;
         sign = "";
         display.setText("0");
@@ -125,6 +131,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onDivideClicked(ActionEvent event) {
+        equalClicked = false;
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
@@ -147,6 +154,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onDotClicked(ActionEvent event) {
+        equalClicked = false;
         String[] a = display.getText().split("");
         boolean flag = false;
         for (int i = 0; i < a.length; i++) {
@@ -161,6 +169,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onEightClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("8");
         } else {
@@ -171,24 +180,44 @@ public class JavaFXCalculatorController {
     @FXML
     void onEqualsClicked(ActionEvent event) {
         double number1 = Double.parseDouble(display.getText());
-        if (sign.equals("+")) {
-            number += number1;
-            display.setText(Double.toString(number));
-        } else if (sign.equals("-")) {
-            number -= number1;
-            display.setText(Double.toString(number));
-        } else if (sign.equals("*")) {
-            number *= number1;
-            display.setText(Double.toString(number));
-        } else if (sign.equals("/")) {
-            number /= number1;
-            display.setText(Double.toString(number));
+        if (!equalClicked) {
+            numberAfterEqual = number1;
+            signAfterEqual = sign;
+            if (sign.equals("+")) {
+                number = Calculations.add(number, number1);
+                display.setText(Double.toString(number));
+            } else if (sign.equals("-")) {
+                number = Calculations.subtract(number, number1);
+                display.setText(Double.toString(number));
+            } else if (sign.equals("*")) {
+                number = Calculations.multiply(number, number1);
+                display.setText(Double.toString(number));
+            } else if (sign.equals("/")) {
+                number = Calculations.divide(number, number1);
+                display.setText(Double.toString(number));
+            }
+            sign = "";
+        } else {
+            if (signAfterEqual.equals("+")) {
+                number += numberAfterEqual;
+                display.setText(Double.toString(number));
+            } else if (signAfterEqual.equals("-")) {
+                number -= numberAfterEqual;
+                display.setText(Double.toString(number));
+            } else if (signAfterEqual.equals("*")) {
+                number *= numberAfterEqual;
+                display.setText(Double.toString(number));
+            } else if (signAfterEqual.equals("/")) {
+                number /= numberAfterEqual;
+                display.setText(Double.toString(number));
+            }
         }
-        sign = "";
+        equalClicked = true;
     }
 
     @FXML
     void onFiveClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("5");
         } else {
@@ -198,6 +227,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onFourClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("4");
         } else {
@@ -207,6 +237,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onMultiplyClicked(ActionEvent event) {
+        equalClicked = false;
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
@@ -229,6 +260,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onNineClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("9");
         } else {
@@ -238,6 +270,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onOneClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("1");
         } else {
@@ -247,14 +280,16 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onPercentClicked(ActionEvent event) {
+        equalClicked = false;
         double number1 = Double.parseDouble(display.getText());
-        number1 /= 100;
+        number1 = Calculations.percent(number1);
         display.setText(Double.toString(number1));
         number = 0;
     }
 
     @FXML
     void onSevenClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("7");
         } else {
@@ -264,6 +299,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onSixClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("6");
         } else {
@@ -273,6 +309,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onSubtractClicked(ActionEvent event) {
+        equalClicked = false;
         if (number != 0) {
             double number1 = Double.parseDouble(display.getText());
             if (sign.equals("+")) {
@@ -295,6 +332,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onThreeClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("3");
         } else {
@@ -304,6 +342,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onTwoClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("2");
         } else {
@@ -313,6 +352,7 @@ public class JavaFXCalculatorController {
 
     @FXML
     void onZeroClicked(ActionEvent event) {
+        equalClicked = false;
         if (display.getText().equals("0")) {
             display.setText("0");
         } else {
